@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────
+   Global base styles
+   ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-navy-deep text-sand-light font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  /* Elegant custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06182b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#1d7a9c, #0f5a78);
+    border-radius: 999px;
+  }
+  ::selection {
+    background: rgba(201, 161, 74, 0.35);
+    color: #fff;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   Reusable component classes
+   ─────────────────────────────────────────────── */
+@layer components {
+  /* Glassmorphism card — the core premium surface */
+  .glass {
+    @apply rounded-3xl border border-white/15 bg-white/5 backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-light {
+    @apply rounded-3xl border border-navy/10 bg-white/60 backdrop-blur-xl shadow-soft;
+  }
+
+  /* Small uppercase label (eyebrow) above headings */
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-widest2 text-gold-light;
+  }
+
+  /* Gold gradient text accent */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-light via-gold to-gold-deep bg-clip-text text-transparent;
+  }
+
+  /* Section container width */
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Primary button */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold-deep
+      px-7 py-3 text-sm font-semibold uppercase tracking-widest text-navy-deep
+      shadow-gold transition-transform duration-300 hover:scale-105;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3
+      text-sm font-semibold uppercase tracking-widest text-sand-light
+      transition-colors duration-300 hover:border-gold hover:text-gold-light;
+  }
+}

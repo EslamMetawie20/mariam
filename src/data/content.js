@@ -1,0 +1,186 @@
+/* ============================================================================
+   📝 EDIT YOUR CONTENT HERE
+   ----------------------------------------------------------------------------
+   This single file controls almost all the text on the website.
+   Mariam — change anything below and the site updates automatically.
+   (Icons & layout live in the components; text & data live here.)
+   ============================================================================ */
+
+/* ── 1. PROJECT OWNER / HERO ─────────────────────────────────────────────── */
+export const owner = {
+  name: 'Mariam El Abasy',
+  university: 'Horus University',
+  projectType: 'Architectural Graduation Project',
+  projectTitle: 'Coastal Resort Master Plan',
+  // Strong subtitle for the hero section:
+  heroSubtitle:
+    'A luxury waterfront destination uniting marina life, hospitality, landscape, pools, and pedestrian promenades — where organic forms gently connect the land with the sea.',
+}
+
+/* ── 2. PROJECT OVERVIEW ─────────────────────────────────────────────────── */
+export const overview = {
+  // Each string below is a separate paragraph.
+  paragraphs: [
+    'The project is a coastal resort master plan located directly beside the sea. The design combines a luxury waterfront destination with recreation, hospitality, landscape areas, pools, marina spaces, and pedestrian promenades.',
+    'The main concept is based on organic curved forms that connect the land with the sea. The central building acts as the visual and functional core of the project. Around it, there are pools, open plazas, green areas, seating zones, sports courts, parking, beach access, and a marina protected by rock breakwaters.',
+    'The main design elements are: waterfront promenade, marina, central resort building, swimming pools, landscape areas, beach zones, parking, sports courts, pedestrian paths, service roads, and sea protection structures.',
+  ],
+  // The image-editing note, shown as an elegant highlighted block:
+  editingNote:
+    'During the image-editing process, the main goal was to keep the original design unchanged. No geometry, paving, buildings, landscape, colors, or materials were modified. The only visual adjustment was to improve the brightness and color mood while preserving the shadows and the original architectural character.',
+  // Quick stats shown as a small strip:
+  stats: [
+    { value: '11', label: 'Master Plan Elements' },
+    { value: '1', label: 'Central Resort Core' },
+    { value: '100%', label: 'Original Design Preserved' },
+    { value: 'PDF', label: 'High-Quality Export' },
+  ],
+}
+
+/* ── 3. DESIGN CONCEPT CARDS ─────────────────────────────────────────────── */
+/* icon = key matched in src/components/icons.jsx */
+export const concepts = [
+  {
+    icon: 'curve',
+    title: 'Organic Curved Forms',
+    text: 'Flowing, organic geometries shape the master plan, softening edges and guiding movement naturally throughout the resort.',
+  },
+  {
+    icon: 'landSea',
+    title: 'Land Meets Sea',
+    text: 'The composition deliberately blurs the threshold between land and water, drawing the sea inward and the buildings outward.',
+  },
+  {
+    icon: 'building',
+    title: 'Central Resort Core',
+    text: 'A central building anchors the scheme as both the visual landmark and the functional heart of the destination.',
+  },
+  {
+    icon: 'luxury',
+    title: 'Luxury Waterfront',
+    text: 'Hospitality, recreation, and leisure combine into a premium waterfront experience designed for year-round enjoyment.',
+  },
+  {
+    icon: 'marina',
+    title: 'Marina & Breakwaters',
+    text: 'A protected marina sheltered by rock breakwaters provides safe mooring and a vibrant maritime edge.',
+  },
+  {
+    icon: 'walk',
+    title: 'Pedestrian Movement',
+    text: 'Generous promenades and landscaped paths prioritise people, connecting every zone with a continuous, walkable journey.',
+  },
+]
+
+/* ── 4. MASTER PLAN ELEMENTS ─────────────────────────────────────────────── */
+export const elements = [
+  { icon: 'promenade', title: 'Waterfront Promenade', text: 'A continuous seaside walkway framing the shoreline and linking every part of the resort.' },
+  { icon: 'marina', title: 'Marina', text: 'Sheltered berths for yachts and boats, forming the lively maritime heart of the plan.' },
+  { icon: 'building', title: 'Central Resort Building', text: 'The iconic core hosting hospitality and amenities at the centre of the composition.' },
+  { icon: 'pool', title: 'Swimming Pools', text: 'Curved leisure pools woven into the landscape for relaxation beside the sea.' },
+  { icon: 'landscape', title: 'Landscape Areas', text: 'Green zones, planting, and gardens that bring softness and shade across the site.' },
+  { icon: 'beach', title: 'Beach Zones', text: 'Direct beach access with sun decks and gentle transitions to the water.' },
+  { icon: 'parking', title: 'Parking', text: 'Organised parking that keeps vehicles discreet while serving the whole resort.' },
+  { icon: 'sports', title: 'Sports Courts', text: 'Active recreation spaces for guests, integrated into the open landscape.' },
+  { icon: 'walk', title: 'Pedestrian Paths', text: 'A network of human-scaled routes connecting plazas, pools, and the promenade.' },
+  { icon: 'road', title: 'Service Roads', text: 'Efficient vehicular circulation that supports operations without disrupting leisure.' },
+  { icon: 'wave', title: 'Sea Protection Structures', text: 'Rock breakwaters and coastal defences that shelter the marina and shoreline.' },
+]
+
+/* ── 5. CV / PORTFOLIO ───────────────────────────────────────────────────────
+   ✏️ Replace the placeholder text below with your real CV details.
+   Add or remove array items freely — the layout adapts automatically. */
+export const cv = {
+  profile:
+    'Architecture graduate from Horus University with a passion for luxury coastal and hospitality design. ' +
+    '[Write your professional summary here — your design philosophy, strengths, and what you are looking for.]',
+
+  education: [
+    {
+      title: 'Bachelor of Architecture',
+      org: 'Horus University',
+      period: '20XX – 20XX',
+      note: 'Graduation Project: Coastal Resort Master Plan. [Add GPA / honours / details here.]',
+    },
+    // { title: '...', org: '...', period: '...', note: '...' },
+  ],
+
+  // General / soft + design skills (shown as pills)
+  skills: [
+    'Architectural Design',
+    'Master Planning',
+    'Concept Development',
+    'Landscape Integration',
+    'Hand Sketching',
+    'Design Presentation',
+    // 'Add a skill…',
+  ],
+
+  // Software skills (shown with a proficiency bar; level is 0–100)
+  software: [
+    { name: 'AutoCAD', level: 85 },
+    { name: 'SketchUp', level: 80 },
+    { name: 'Lumion', level: 75 },
+    { name: 'Adobe Photoshop', level: 80 },
+    { name: 'Revit', level: 65 },
+    { name: 'Microsoft Office', level: 90 },
+    // { name: 'Software…', level: 50 },
+  ],
+
+  experience: [
+    {
+      title: 'Architecture Trainee',
+      org: '[Company / Office name]',
+      period: '20XX',
+      note: '[Describe your training, responsibilities, and what you worked on.]',
+    },
+    // { title: '...', org: '...', period: '...', note: '...' },
+  ],
+
+  projects: [
+    {
+      title: 'Coastal Resort Master Plan',
+      note: 'Graduation project — a luxury waterfront resort with marina, pools, and promenades.',
+    },
+    {
+      title: '[Project Name]',
+      note: '[Short description of another project you want to showcase.]',
+    },
+  ],
+
+  contact: {
+    email: 'mariam.elabasy@example.com', // ✏️ your email
+    phone: '+20 1XX XXX XXXX', // ✏️ your phone
+    location: 'Egypt', // ✏️ your location
+    linkedin: '', // ✏️ optional — full URL, leave '' to hide
+    behance: '', // ✏️ optional — full URL, leave '' to hide
+    instagram: '', // ✏️ optional — full URL, leave '' to hide
+  },
+}
+
+/* ── 6. QR VIDEO SECTION ─────────────────────────────────────────────────── */
+export const qr = {
+  // 📍 QR IMAGE PATH — place your file at: public/assets/QR.png
+  imagePath: '/assets/QR.png',
+  heading: 'Scan to Watch the Project Video',
+  subtext:
+    'Explore the full presentation video of the Coastal Resort Master Plan and experience the design in motion.',
+  ctaLabel: 'Project Video',
+}
+
+/* ── 7. PDF / PRESENTATION OUTPUT ────────────────────────────────────────── */
+export const pdf = {
+  heading: 'High-Quality PDF Output',
+  text:
+    'The final master plan was brightened and refined while fully preserving the original architectural character, ' +
+    'then exported as a high-quality PDF prepared for professional presentation use.',
+  points: [
+    'Original geometry, paving, and materials preserved',
+    'Brightness and colour mood enhanced',
+    'Shadows and architectural character maintained',
+    'Exported as a presentation-ready PDF',
+  ],
+  // Optional: if you add the PDF to public/assets, set the path here to enable the button.
+  // e.g. '/assets/master-plan.pdf' — leave '' to show a non-linked label.
+  filePath: '',
+}
