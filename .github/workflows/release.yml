@@ -1,0 +1,59 @@
+name: Release
+
+# Run only when a version tag like v1.0.0 is pushed
+on:
+  push:
+    tags:
+      - 'v*'
+
+# The release step needs write access to repository contents to create the release
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get the source code at the tagged commit
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js with built-in npm dependency caching
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies from the lockfile (reproducible)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Run tests only if a "test" script exists (skipped otherwise, never fails the build)
+      - name: Run tests (if present)
+        run: |
+          if npm run | grep -q '^  test'; then
+            npm test
+          else
+            echo "No test script found — skipping."
+          fi
+
+      # 5. Build the production bundle into dist/
+      - name: Build project
+        run: npm run build
+
+      # 6. Package the dist/ output into a single versioned zip artifact
+      - name: Package build artifacts
+        run: |
+          cd dist
+          zip -r "../coastal-resort-master-plan-${GITHUB_REF_NAME}.zip" .
+
+      # 7. Create the GitHub Release and upload the artifact with auto-generated notes
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            coastal-resort-master-plan-${{ github.ref_name }}.zip
