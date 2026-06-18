@@ -161,7 +161,8 @@ export const cv = {
 /* ── 6. QR VIDEO SECTION ─────────────────────────────────────────────────── */
 export const qr = {
   // 📍 QR IMAGE PATH — place your file at: public/assets/QR.png
-  imagePath: '/assets/QR.png',
+  // BASE_URL keeps the path correct under the GitHub Pages subfolder (/mariam/).
+  imagePath: `${import.meta.env.BASE_URL}assets/QR.png`,
   heading: 'Scan to Watch the Project Video',
   subtext:
     'Explore the full presentation video of the Coastal Resort Master Plan and experience the design in motion.',
