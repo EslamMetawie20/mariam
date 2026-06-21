@@ -244,19 +244,3 @@ export const qr = {
   ctaLabel: 'Project Video',
 }
 
-/* ── 7. PDF / PRESENTATION OUTPUT ────────────────────────────────────────── */
-export const pdf = {
-  heading: 'High-Quality PDF Output',
-  text:
-    'The final master plan was brightened and refined while fully preserving the original architectural character, ' +
-    'then exported as a high-quality PDF prepared for professional presentation use.',
-  points: [
-    'Original geometry, paving, and materials preserved',
-    'Brightness and colour mood enhanced',
-    'Shadows and architectural character maintained',
-    'Exported as a presentation-ready PDF',
-  ],
-  // Optional: if you add the PDF to public/assets, set the path here to enable the button.
-  // e.g. '/assets/master-plan.pdf' — leave '' to show a non-linked label.
-  filePath: '',
-}

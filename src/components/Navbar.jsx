@@ -8,7 +8,6 @@ const links = [
   { href: '#elements', label: 'Master Plan' },
   { href: '#cv', label: 'Portfolio' },
   { href: '#video', label: 'Video' },
-  { href: '#pdf', label: 'Output' },
 ]
 
 export default function Navbar() {

@@ -26,6 +26,16 @@ export default function Footer() {
           <p className="text-xs text-sand/45">
             © {owner.name} — Architectural Graduation Project. All rights reserved.
           </p>
+
+          <p className="text-[0.7rem] uppercase tracking-widest2 text-sand/40">
+            Coded by{' '}
+            <a
+              href="mailto:eslammetawie@gmail.com"
+              className="normal-case text-gold-light/80 transition-colors hover:text-gold-light"
+            >
+              eslammetawie@gmail.com
+            </a>
+          </p>
         </div>
       </div>
     </footer>
