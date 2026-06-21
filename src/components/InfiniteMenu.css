@@ -1,5 +1,12 @@
 /* InfiniteMenu — 3D arcball image sphere (WebGL2).
-   Overlay styles tuned for the coastal-luxury palette of this portfolio. */
+   Only the canvas is owned here; titles/descriptions are rendered by the
+   parent component so they never overlap the central disc image. */
+
+.infinite-menu-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 #infinite-grid-menu-canvas {
   cursor: grab;
@@ -13,111 +20,4 @@
 
 #infinite-grid-menu-canvas:active {
   cursor: grabbing;
-}
-
-.infinite-menu-root {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.face-title {
-  user-select: none;
-  position: absolute;
-  font-weight: 800;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  letter-spacing: -0.01em;
-  line-height: 1.05;
-  left: 6%;
-  top: 50%;
-  margin: 0;
-  color: #f5f1e8;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
-  max-width: 9ch;
-  pointer-events: none;
-}
-
-.face-title.active {
-  opacity: 1;
-  transform: translate(0, -50%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.face-title.inactive {
-  opacity: 0;
-  transform: translate(-8px, -50%);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.face-description {
-  user-select: none;
-  position: absolute;
-  max-width: 30ch;
-  top: 50%;
-  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-  line-height: 1.55;
-  right: 6%;
-  margin: 0;
-  color: rgba(245, 241, 232, 0.88);
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-}
-
-.face-description.active {
-  opacity: 1;
-  transform: translate(0, -50%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.face-description.inactive {
-  opacity: 0;
-  transform: translate(8px, -50%);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.action-button {
-  position: absolute;
-  left: 50%;
-  z-index: 10;
-  width: 64px;
-  height: 64px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #c9a96a 0%, #e6c98a 100%);
-  border: 2px solid rgba(245, 241, 232, 0.9);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 0 6px rgba(201, 169, 106, 0.18);
-}
-
-.action-button.active {
-  bottom: 2.2em;
-  transform: translateX(-50%) scale(1);
-  opacity: 1;
-  pointer-events: auto;
-  transition: transform 0.5s ease, opacity 0.5s ease, bottom 0.5s ease;
-}
-
-.action-button.inactive {
-  bottom: -80px;
-  transform: translateX(-50%) scale(0);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.15s ease, opacity 0.15s ease, bottom 0.15s ease;
-}
-
-.action-button-icon {
-  user-select: none;
-  position: relative;
-  color: #0a1f33;
-  top: 1px;
-  font-size: 26px;
-  font-weight: 700;
-}
-
-@media (max-width: 900px) {
-  .face-title,
-  .face-description {
-    display: none;
-  }
 }

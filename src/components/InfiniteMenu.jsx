@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { mat4, quat, vec2, vec3 } from 'gl-matrix'
 import './InfiniteMenu.css'
 
@@ -858,10 +858,20 @@ const defaultItems = [
   },
 ]
 
-export default function InfiniteMenu({ items = [], scale = 1.0 }) {
+/**
+ * InfiniteMenu — renders only the WebGL2 sphere.
+ * The parent component is responsible for rendering the active item's title /
+ * description outside the canvas so they never overlap the image disc.
+ *
+ * Props:
+ *   items                 — array of { image, title, description, link }
+ *   scale                 — sphere scale factor (default 1)
+ *   onActiveItemChange    — called with the active item (or null) when it changes
+ *   onMovingChange        — called with a boolean when drag/move state changes
+ */
+export default function InfiniteMenu({ items = [], scale = 1.0, onActiveItemChange, onMovingChange }) {
   const canvasRef = useRef(null)
-  const [activeItem, setActiveItem] = useState(null)
-  const [isMoving, setIsMoving] = useState(false)
+  const activeIndexRef = useRef(-1)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -870,7 +880,13 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
     const handleActiveItem = (index) => {
       if (!items.length) return
       const itemIndex = index % items.length
-      setActiveItem(items[itemIndex])
+      if (itemIndex === activeIndexRef.current) return
+      activeIndexRef.current = itemIndex
+      onActiveItemChange?.(items[itemIndex], itemIndex)
+    }
+
+    const handleMoving = (moving) => {
+      onMovingChange?.(moving)
     }
 
     if (canvas) {
@@ -878,7 +894,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
         canvas,
         items.length ? items : defaultItems,
         handleActiveItem,
-        setIsMoving,
+        handleMoving,
         (sk) => sk.run(),
         scale,
       )
@@ -895,39 +911,11 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
       window.removeEventListener('resize', handleResize)
       if (sketch) sketch.stop()
     }
-  }, [items, scale])
-
-  const handleButtonClick = () => {
-    if (!activeItem?.link) return
-    if (activeItem.link.startsWith('http')) {
-      window.open(activeItem.link, '_blank')
-    } else {
-      console.log('Internal route:', activeItem.link)
-    }
-  }
+  }, [items, scale, onActiveItemChange, onMovingChange])
 
   return (
     <div className="infinite-menu-root">
       <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
-
-      {activeItem && (
-        <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
-
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>{activeItem.description}</p>
-
-          {activeItem.link ? (
-            <div
-              onClick={handleButtonClick}
-              className={`action-button ${isMoving ? 'inactive' : 'active'}`}
-              role="button"
-              aria-label="Open"
-            >
-              <p className="action-button-icon">&#x2197;</p>
-            </div>
-          ) : null}
-        </>
-      )}
     </div>
   )
 }
