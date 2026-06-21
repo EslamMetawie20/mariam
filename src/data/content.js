@@ -172,17 +172,15 @@ export const elements = [
    Add or remove array items freely — the layout adapts automatically. */
 export const cv = {
   profile:
-    'Architecture graduate from Horus University with a passion for luxury coastal and hospitality design. ' +
-    '[Write your professional summary here — your design philosophy, strengths, and what you are looking for.]',
+    'Architecture graduate from Horus University with a passion for luxury coastal and hospitality design.',
 
   education: [
     {
       title: 'Bachelor of Architecture',
       org: 'Horus University',
-      period: '20XX – 20XX',
-      note: 'Graduation Project: Coastal Resort Master Plan. [Add GPA / honours / details here.]',
+      period: '2021 – 2026',
+      note: 'Graduation Project: Mixed-use development — yacht club, commercial building, and residential units.',
     },
-    // { title: '...', org: '...', period: '...', note: '...' },
   ],
 
   // General / soft + design skills (shown as pills)
@@ -193,28 +191,25 @@ export const cv = {
     'Landscape Integration',
     'Hand Sketching',
     'Design Presentation',
-    // 'Add a skill…',
   ],
 
   // Software skills (shown with a proficiency bar; level is 0–100)
   software: [
     { name: 'AutoCAD', level: 85 },
-    { name: 'SketchUp', level: 80 },
+    { name: '3ds Max', level: 80 },
     { name: 'Lumion', level: 75 },
     { name: 'Adobe Photoshop', level: 80 },
     { name: 'Revit', level: 65 },
     { name: 'Microsoft Office', level: 90 },
-    // { name: 'Software…', level: 50 },
   ],
 
   experience: [
     {
       title: 'Architecture Trainee',
-      org: '[Company / Office name]',
-      period: '20XX',
-      note: '[Describe your training, responsibilities, and what you worked on.]',
+      org: 'TMG Development',
+      period: '2025',
+      note: 'Working stages.',
     },
-    // { title: '...', org: '...', period: '...', note: '...' },
   ],
 
   projects: [
@@ -223,18 +218,18 @@ export const cv = {
       note: 'Graduation project — a luxury waterfront resort with marina, pools, and promenades.',
     },
     {
-      title: '[Project Name]',
-      note: '[Short description of another project you want to showcase.]',
+      title: 'Blue Wave',
+      note: 'Mixed-use development.',
     },
   ],
 
   contact: {
-    email: 'mariam.elabasy@example.com', // ✏️ your email
-    phone: '+20 1XX XXX XXXX', // ✏️ your phone
-    location: 'Egypt', // ✏️ your location
-    linkedin: '', // ✏️ optional — full URL, leave '' to hide
-    behance: '', // ✏️ optional — full URL, leave '' to hide
-    instagram: '', // ✏️ optional — full URL, leave '' to hide
+    email: 'mariamelabasy12@gmail.com',
+    phone: '+20 106 616 6639',
+    location: 'Egypt',
+    linkedin: '',
+    behance: '',
+    instagram: '',
   },
 }
 
