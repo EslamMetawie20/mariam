@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import { owner } from '../data/content'
-import SplitText from './SplitText'
-import Ribbons from './Ribbons'
 
 /* Animated layered waves drawn at the bottom of the hero */
 function HeroWaves() {
@@ -30,107 +28,116 @@ function HeroWaves() {
 
 const ease = [0.22, 1, 0.36, 1]
 
+/* Hero image is loaded from public/assets/portofio.png.
+   BASE_URL keeps the path correct under the GitHub Pages subfolder (/mariam/).
+   To swap the photo later, just replace that file (same name) — no code change needed. */
+const heroImage = `${import.meta.env.BASE_URL}assets/portofio.png`
+
 export default function Hero() {
   return (
     <section id="hero" className="relative flex min-h-screen items-center overflow-hidden">
       {/* ── BACKGROUND ── gradient: deep navy → sea → sand */}
       <div className="absolute inset-0 bg-sea-sand" />
-      {/* Radial glow accents */}
       <div className="absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-sea-light/20 blur-3xl" />
       <div className="absolute right-0 top-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-      {/* Soft grain / vignette */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep/60" />
-
-      {/* Giant watermark name sitting in the BACKGROUND */}
-      <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center">
-        <span className="select-none whitespace-nowrap font-display text-[22vw] font-semibold uppercase leading-none tracking-tight text-white/5">
-          El Abasy
-        </span>
-      </div>
-
-      {/* Interactive cursor-following ribbons (React Bits) — sits above the
-          gradient but below the foreground text, so buttons stay clickable.
-          Tweak colors/thickness here. */}
-      <div className="absolute inset-0 z-[2]">
-        <Ribbons
-          colors={['#e3c578', '#3fb0c9', '#ffffff']}
-          baseThickness={22}
-          baseSpring={0.03}
-          baseFriction={0.9}
-          offsetFactor={0.05}
-          maxAge={500}
-          pointCount={50}
-          speedMultiplier={0.5}
-          enableFade={true}
-          enableShaderEffect={true}
-          effectAmplitude={2}
-        />
-      </div>
 
       <HeroWaves />
 
       {/* ── FOREGROUND CONTENT ── */}
-      <div className="container-px relative z-10 py-32 text-center">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease }}
-          className="eyebrow"
+      <div className="container-px relative z-10 grid items-center gap-12 py-28 sm:py-32 lg:grid-cols-2 lg:gap-16 lg:py-36">
+        {/* LEFT — Portrait panel.
+            Order is set to come first on mobile (image-then-text), but stays left on lg+. */}
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.9, ease }}
+          className="order-1 lg:order-1"
         >
-          {owner.university}
-        </motion.span>
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            {/* Soft gold halo behind the panel */}
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold/25 via-transparent to-sea-light/20 blur-2xl" aria-hidden />
 
-        {/* ⭐ Mariam El Abasy — big & white, animated with SplitText */}
-        <div className="mt-6">
-          <SplitText
-            text={owner.name}
-            tag="h1"
-            className="font-display text-6xl font-semibold leading-[1.05] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.35)] sm:text-8xl lg:text-9xl"
-            splitType="chars"
-            delay={60}
-            duration={1}
-            ease="power3.out"
-            from={{ opacity: 0, y: 60 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            rootMargin="-50px"
-            textAlign="center"
-          />
+            <div className="glass relative overflow-hidden p-3 sm:p-4">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={heroImage}
+                  alt={`${owner.name} — architect`}
+                  className="block h-auto w-full select-none object-cover"
+                  draggable="false"
+                />
+                {/* Subtle bottom gradient for depth */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-deep/55 to-transparent" />
+
+                {/* Floating identity chip */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-4 py-2 backdrop-blur">
+                  <span className="h-2 w-2 rounded-full bg-gold-light shadow-[0_0_10px_2px_rgba(227,197,120,0.7)]" />
+                  <span className="text-xs font-semibold uppercase tracking-widest2 text-sand-light">
+                    {owner.name}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* RIGHT — Text content */}
+        <div className="order-2 text-center lg:order-2 lg:text-left">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+            className="eyebrow"
+          >
+            {owner.university}
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease }}
+            className="mt-5 font-display text-5xl font-semibold leading-[1.05] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-7xl"
+          >
+            {owner.name}
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease }}
+            className="mt-6 flex flex-col items-center gap-2 lg:items-start"
+          >
+            <span className="font-display text-3xl text-gold-gradient sm:text-4xl">
+              {owner.projectTitle}
+            </span>
+            <span className="text-xs uppercase tracking-widest2 text-sand/80 sm:text-sm">
+              {owner.projectType}
+            </span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease }}
+            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-sand-light/90 sm:text-lg lg:mx-0"
+          >
+            {owner.heroSubtitle}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55, ease }}
+            className="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+          >
+            <a href="#overview" className="btn-gold">
+              Explore the Project
+            </a>
+            <a href="#video" className="btn-ghost">
+              Watch the Video
+            </a>
+          </motion.div>
         </div>
-
-        {/* Project title + type */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease }}
-          className="mx-auto mt-6 flex flex-col items-center gap-2"
-        >
-          <span className="font-display text-3xl text-gold-gradient sm:text-4xl">{owner.projectTitle}</span>
-          <span className="text-sm uppercase tracking-widest2 text-sand/80">{owner.projectType}</span>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.65, ease }}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-sand-light/90 sm:text-xl"
-        >
-          {owner.heroSubtitle}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.8, ease }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          <a href="#overview" className="btn-gold">
-            Explore the Project
-          </a>
-          <a href="#video" className="btn-ghost">
-            Watch the Video
-          </a>
-        </motion.div>
       </div>
 
       {/* Scroll hint */}
