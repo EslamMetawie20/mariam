@@ -72,7 +72,87 @@ export const concepts = [
   },
 ]
 
-/* ── 4. MASTER PLAN ELEMENTS ─────────────────────────────────────────────── */
+/* ── 4. PROJECT GALLERY (used by the InfiniteMenu / ProjectGallery) ──────── */
+/* Images live in: public/assets/gallery/
+   BASE_URL keeps paths correct under the GitHub Pages subfolder (/mariam/). */
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
+export const gallery = [
+  {
+    title: 'Marina',
+    category: 'Waterfront',
+    image: asset('assets/gallery/01-marina.jpg'),
+    link: '',
+    description:
+      'A waterfront facility that provides docking, maintenance, and services for yachts and boats, supporting marine recreation and tourism.',
+  },
+  {
+    title: 'Chalets',
+    category: 'Hospitality',
+    image: asset('assets/gallery/02-chalets.jpg'),
+    link: '',
+    description:
+      'Private accommodation units that provide comfortable short-term stays with direct access to waterfront amenities and leisure activities.',
+  },
+  {
+    title: 'Blue Wave',
+    category: 'Concept',
+    image: asset('assets/gallery/03-blue-wave.jpg'),
+    link: '',
+    description:
+      'A design concept inspired by the movement of waves, creating a dynamic waterfront destination that reconnects people with the sea through recreation, community interaction, and sustainable development.',
+  },
+  {
+    title: 'Aqua Park',
+    category: 'Recreation',
+    image: asset('assets/gallery/04-aqua-park.jpg'),
+    link: '',
+    description:
+      'A water-based entertainment area featuring slides, pools, and recreational attractions for visitors of all ages.',
+  },
+  {
+    title: 'Solar Canopy',
+    category: 'Sustainability',
+    image: asset('assets/gallery/05-solar-canopy.jpg'),
+    link: '',
+    description:
+      'A shaded structure integrated with solar panels that generates renewable energy while providing protection from sunlight.',
+  },
+  {
+    title: 'Sea Gate',
+    category: 'Landmark',
+    image: asset('assets/gallery/06-sea-gate.jpg'),
+    link: '',
+    description:
+      'A landmark entrance that creates a visual and physical connection between the development and the sea, welcoming visitors and enhancing accessibility to the waterfront.',
+  },
+  {
+    title: 'Rainwater Harvesting Canopy',
+    category: 'Sustainability',
+    image: asset('assets/gallery/07-rainwater-harvesting-canopy.jpg'),
+    link: '',
+    description:
+      'A canopy system designed to collect and channel rainwater for storage, filtration, and reuse, promoting sustainable water management.',
+  },
+  {
+    title: 'Kayaking',
+    category: 'Recreation',
+    image: asset('assets/gallery/08-kayaking.jpg'),
+    link: '',
+    description:
+      'A water sport and recreational activity that allows visitors to explore the waterfront using small paddle-powered boats.',
+  },
+  {
+    title: 'Master Plan',
+    category: 'Overview',
+    image: asset('assets/gallery/09-master-plan.jpg'),
+    link: '',
+    description:
+      'A comprehensive layout that organizes the whole project, showing the main zones, circulation paths, open spaces, facilities, landscape, and the relationship between the buildings and the waterfront.',
+  },
+]
+
+/* ── 4b. MASTER PLAN ELEMENTS (legacy icon cards — no longer rendered) ──── */
 export const elements = [
   { icon: 'promenade', title: 'Waterfront Promenade', text: 'A continuous seaside walkway framing the shoreline and linking every part of the resort.' },
   { icon: 'marina', title: 'Marina', text: 'Sheltered berths for yachts and boats, forming the lively maritime heart of the plan.' },

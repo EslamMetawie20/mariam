@@ -2,7 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ProjectOverview from './components/ProjectOverview'
 import DesignConcept from './components/DesignConcept'
-import MasterPlanElements from './components/MasterPlanElements'
+import ProjectGallery from './components/ProjectGallery'
 import CV from './components/CV'
 import QRSection from './components/QRSection'
 import PDFSection from './components/PDFSection'
@@ -24,11 +24,7 @@ export default function App() {
         <ProjectOverview />
         <DesignConcept />
 
-        {/* dark → light transition into Master Plan */}
-        <WaveDivider className="text-beige -mb-1" />
-        <MasterPlanElements />
-        {/* light → dark transition into CV */}
-        <WaveDivider flip className="text-beige -mt-1" />
+        <ProjectGallery />
 
         <CV />
         <QRSection />
